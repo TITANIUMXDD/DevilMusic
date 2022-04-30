@@ -26,6 +26,8 @@ import sira
 from config import DURATION_LIMIT
 from helpers.wrappers import errors, admins_only
 from helpers.errors import DurationLimitError
+from pytgcalls import StreamType
+from pytgcalls.types.input_stream import AudioPiped
 
 
 chat_id = None
@@ -87,7 +89,16 @@ async def play(client: Client, message_: Message):
         photo="https://telegra.ph/file/fe07b15733ed56f103cb4.jpg",
         caption=f"Playing Your song Via Devil music bot.",
          ) 
-        tgcalls.pytgcalls.join_group_call(message_.chat.id, file_path)
+        tgcalls.pytgcalls.join_group_call(message_.chat.id,AudioPiped(
+        file_path
+    )
+)
+        app.join_group_call(
+    -1001185324811,
+    AudioPiped(
+        'http://docs.evostream.com/sample_content/assets/sintel1m720p.mp4',
+    )
+)
 
 
 # Generate cover for youtube
